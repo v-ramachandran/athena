@@ -1,2 +1,40 @@
-<h1>RestaurantRecommendation#new</h1>
-<p>Find me in app/views/restaurant_recommendation/new.html.erb</p>
+<div class="recommendation-content">
+  <div class="title-container">
+    <h1 class="main-title">Recommend a Matching Restaurant</h1>
+  </div>
+  
+  <div class="task-description-container">
+    <p class="task-description">
+      Please provide the name of a restaurant <span class="critical-detail">in <%= @location_city %>, 
+      <%= @location_state %> <%= @location_country %></span> that has the following <%= @tags.length %> 
+      properties.
+    </p>
+  </div>
+  
+  <div class="tags-container">
+    <ul class="tags">
+      <% @tags.each do |tag| %>
+        <li class="tag">
+	  <span class="tag-label"> <%= tag %> </span>
+	</li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="form-container">
+    <%= form_for RestaurantRecommendation.new, url: create_restaurant_recommendation_path, 
+	html: {class: "recommendation-form"} do |form| %>
+      <%= form.text_field :name, class: "text-input" %>
+      <%= form.hidden_field :time_to_complete %>
+      <%= form.hidden_field :time_of_entry %>
+      <%= form.hidden_field :serialized_terms, value: @tags.to_json %>
+      <%= form.hidden_field :city, value: @location_city %>
+      <%= form.hidden_field :state, value: @location_state %>
+      <%= form.hidden_field :country, value: @location_country %>
+      <%= form.hidden_field :hit_id %>
+      <%= form.hidden_field :assignment_id %>
+      <%= form.hidden_field :worker_id %>
+      <%= form.submit "Enter", class: "submit button" %>
+    <% end %>
+  </div>
+</div>
