@@ -21,13 +21,14 @@
 
 .tags {
    list-style: none;
-   display: inline-block;
 
    padding: 0;
 }
 
 .tags .tag {
    display: inline-block;
+   
+   padding: 15px;
 }
 
 .tags .tag .tag-label {
@@ -35,7 +36,6 @@
    padding-right: 20px;
    padding-top: 15px;
    padding-bottom: 15px;
-   margin: 10px;
    
    background: rgb(190,239,202);
    color: rgb(13,98,30);

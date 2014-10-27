@@ -1,6 +1,6 @@
 class RestaurantRecommendationController < ApplicationController
   def new
-    @tags=["vegetarian","italian"]
+    @tags=["is vegetarian","is italian","has pasta"]
     @location_city="Austin"
     @location_state="Texas"
     @location_country="USA"
