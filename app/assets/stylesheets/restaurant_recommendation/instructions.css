@@ -1,0 +1,47 @@
+.task-description-container {
+   text-align: center;
+
+   padding-top: .25%;
+   padding-bottom: .25%;
+}
+
+.task-description {
+   font-size: 110%;
+   font-weight: 300;
+}
+
+.task-description .critical-detail {
+   font-weight: bolder;
+}
+
+.tags-container {
+   text-align: center;
+   margin: 3%;
+}
+
+.tags {
+   list-style: none;
+   display: inline-block;
+
+   padding: 0;
+}
+
+.tags .tag {
+   display: inline-block;
+}
+
+.tags .tag .tag-label {
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   margin: 10px;
+   
+   background: rgb(190,239,202);
+   color: rgb(13,98,30);
+}
+
+.tags .tag .tag-label:before {
+   content: "+";
+   margin-right: 8%;
+}
