@@ -1,4 +1,8 @@
+require "modules/mechanical_turk/url_factory"
+
 class RestaurantRecommendationController < ApplicationController
+  include MechanicalTurk::URLFactory
+
   def new
     @tags=["is vegetarian","is italian","has pasta"]
     @location_city="Austin"
@@ -14,7 +18,8 @@ class RestaurantRecommendationController < ApplicationController
   def create
     if params[:restaurant_recommendation]
       id = RestaurantRecommendation.create restaurant_recommendation_params
-      redirect_to restaurant_recommendation_path id
+      redirect_to create_task_submission_url assignment_id=params[:assignment_id],
+        worker_id=params[:worker_id], hit_id=params[:hit_id]
     else
       redirect_to new_restaurant_recommendation_path
     end
