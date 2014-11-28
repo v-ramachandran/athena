@@ -13,4 +13,5 @@
 //= require jquery
 //= require turbolinks
 //= require time_manager
+//= require mturk_property_manager
 //= require_tree .
