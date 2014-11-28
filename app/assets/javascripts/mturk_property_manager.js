@@ -29,8 +29,8 @@ MTurk.TaskPropertyManager = function(form_selector) {
     var worker_id = get_url_parameter_value(WORKER_ID_NAME);
 
     TARGET.find(".assignment-id-field").val(assignment_id);
-    TARGET.find(".hit-id-field").val(assignment_id);
-    TARGET.find(".worker-id-field").val(assignment_id);
+    TARGET.find(".hit-id-field").val(hit_id);
+    TARGET.find(".worker-id-field").val(worker_id);
   }
 
   var validate_submission_eligibility = function() {
