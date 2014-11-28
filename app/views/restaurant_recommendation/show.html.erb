@@ -1,5 +1,5 @@
 <%= content_for :head_js do %>
-  <%= javascript_include_tag 'restaurant_recommendation', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'recommendation_validation', 'data-turbolinks-track' => true %>
 <% end %>
 
 <div class="recommendation-content">
@@ -34,7 +34,7 @@
   <div class="form-container">
     <%= form_for [RecommendationValidation.new],
       url: restaurant_recommendation_recommendation_validation_index_path(params[:id]),
-      html: {class: "validation-form time-tracked"} do |form| %>
+      html: {class: "recommendation-form time-tracked"} do |form| %>
 
       <div class="stacked-radios">
         <div class="stacked-radio">
