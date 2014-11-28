@@ -36,7 +36,7 @@ MTurk.TaskPropertyManager = function(form_selector) {
   var validate_submission_eligibility = function() {
     var assignment_id = get_url_parameter_value(ASSIGNMENT_ID_NAME);
     if (assignment_id == INELIGIBLE_ASSIGNMENT_NAME) {
-      TARGET.find(".submit_button").prop('disabled', true);
+      TARGET.find(".submit.button").prop('disabled', true);
     }
   }
 
