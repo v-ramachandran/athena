@@ -5,7 +5,7 @@ MTurk.TaskPropertyManager = function(form_selector) {
   var INELIGIBLE_ASSIGNMENT_NAME = "ASSIGNMENT_ID_NOT_AVAILABLE";
   var ASSIGNMENT_ID_NAME = "assignmentId";
   var WORKER_ID_NAME = "workerId";
-  var HIT_ID = "hitId";
+  var HIT_ID_NAME = "hitId";
 
   /**
    * This method Gets URL Parameters (GUP).
