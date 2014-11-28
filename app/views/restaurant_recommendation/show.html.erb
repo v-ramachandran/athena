@@ -1,3 +1,7 @@
+<%= content_for :head_js do %>
+  <%= javascript_include_tag 'restaurant_recommendation', 'data-turbolinks-track' => true %>
+<% end %>
+
 <div class="recommendation-content">
   <div class="title-container">
     <h1 class="main-title">Validate A Restaurant</h1>
