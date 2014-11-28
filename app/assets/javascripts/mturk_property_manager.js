@@ -28,9 +28,9 @@ MTurk.WorkerPropertyManager = function(form_selector) {
     var hit_id = get_url_parameter_value(HIT_ID_NAME);
     var worker_id = get_url_parameter_value(WORKER_ID_NAME);
 
-    TARGET.find(".assignment_id_field").val(assignment_id);
-    TARGET.find(".hit_id_field").val(assignment_id);
-    TARGET.find(".worker_id_field").val(assignment_id);
+    TARGET.find(".assignment-id-field").val(assignment_id);
+    TARGET.find(".hit-id-field").val(assignment_id);
+    TARGET.find(".worker-id-field").val(assignment_id);
   }
 
   var validate_submission_eligibility = function() {

@@ -37,9 +37,9 @@
       <%= form.hidden_field :city, value: @location_city %>
       <%= form.hidden_field :state, value: @location_state %>
       <%= form.hidden_field :country, value: @location_country %>
-      <%= form.hidden_field :hit_id %>
-      <%= form.hidden_field :assignment_id %>
-      <%= form.hidden_field :worker_id %>
+      <%= form.hidden_field :hit_id, class: "hit-id-field" %>
+      <%= form.hidden_field :assignment_id, class: "assignment-id-field" %>
+      <%= form.hidden_field :worker_id, class: "worker-id-field" %>
       <%= form.submit "Submit", class: "submit button" %>
     <% end %>
   </div>
