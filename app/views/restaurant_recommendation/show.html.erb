@@ -1,0 +1,55 @@
+<div class="recommendation-content">
+  <div class="title-container">
+    <h1 class="main-title">Validate A Restaurant</h1>
+  </div>
+
+  <div class="task-description-container">
+    <p class="task-description">
+      Please determine if there exists a restaurant named
+      <span class="critical-detail"> <%= @restaurant_recommendation.name %>
+      </span> in <%= @restaurant_recommendation.city %>,
+      <%= @restaurant_recommendation.state %>
+      <%= @restaurant_recommendation.country %> </span>
+    </p>
+    <p class="task-description">
+      If it does, determine if it meets <span class="critical-detail"> all
+      </span> of the requirement labels below.
+    </p>
+  </div>
+
+  <div class="tags-container">
+    <ul class="tags">
+      <% JSON.parse(@restaurant_recommendation.serialized_terms).each do |tag| %>
+        <li class="tag">
+          <span class="tag-label"> <%= tag %> </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="form-container">
+    <%= form_for [RecommendationValidation.new],
+      url: restaurant_recommendation_recommendation_validation_index_path(params[:id]),
+      html: {class: "validation-form time-tracked"} do |form| %>
+
+      <div class="stacked-radios">
+        <div class="stacked-radio">
+          <%= form.radio_button :valid_recommendation, true, checked: true%>
+          <%= form.label :valid_recommendation_true,
+            "Yes, the restaurant exists and meets all criteria."%>
+        </div>
+        <div class="stacked-radio">
+          <%= form.radio_button :valid_recommendation, false%>
+          <%= form.label :valid_recommendation_false,
+            "No, the restaurant doesn't exist or meet some criteria."%>
+        </div>
+      </div>
+      <%= form.hidden_field :time_to_complete, class: "completion-time-field" %>
+      <%= form.hidden_field :time_of_entry, class: "entry-time-field" %>
+      <%= form.hidden_field :hit_id %>
+      <%= form.hidden_field :assignment_id %>
+      <%= form.hidden_field :worker_id %>
+      <%= form.submit "Submit", class: "submit button" %>
+    <% end %>
+  </div>
+</div>

@@ -10,8 +10,8 @@
    font-weight: 300;
 }
 
-.task-description .critical-detail {
-   font-weight: bolder;
+.critical-detail {
+   font-weight: 900;
 }
 
 .tags-container {
@@ -27,7 +27,7 @@
 
 .tags .tag {
    display: inline-block;
-   
+
    padding: 15px;
 }
 
@@ -36,7 +36,7 @@
    padding-right: 20px;
    padding-top: 15px;
    padding-bottom: 15px;
-   
+
    background: rgb(190,239,202);
    color: rgb(13,98,30);
 }

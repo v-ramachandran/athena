@@ -1,16 +1,20 @@
+<%= content_for :head_js do %>
+  <%= javascript_include_tag 'restaurant_recommendation', 'data-turbolinks-track' => true %>
+<% end %>
+
 <div class="recommendation-content">
   <div class="title-container">
     <h1 class="main-title">Recommend a Suitable Restaurant</h1>
   </div>
-  
+
   <div class="task-description-container">
     <p class="task-description">
-      Please provide the name of a restaurant <span class="critical-detail">in <%= @location_city %>, 
-      <%= @location_state %> <%= @location_country %></span> that has the following <%= @tags.length %> 
-      properties.
+      Please provide the name of a restaurant <span class="critical-detail">in <%= @location_city %>,
+      <%= @location_state %> <%= @location_country %></span> that meets the following <%= @tags.length %>
+      requirements.
     </p>
   </div>
-  
+
   <div class="tags-container">
     <ul class="tags">
       <% @tags.each do |tag| %>
@@ -22,11 +26,13 @@
   </div>
 
   <div class="form-container">
-    <%= form_for RestaurantRecommendation.new, url: create_restaurant_recommendation_path, 
-	html: {class: "recommendation-form"} do |form| %>
+    <%= form_for RestaurantRecommendation.new,
+        url: {action: "create"},
+	      html: {class: "recommendation-form time-tracked negative-suggested"} do |form| %>
+
       <%= form.text_field :name, class: "text-input" %>
-      <%= form.hidden_field :time_to_complete %>
-      <%= form.hidden_field :time_of_entry %>
+      <%= form.hidden_field :time_to_complete, class: "completion-time-field" %>
+      <%= form.hidden_field :time_of_entry, class: "entry-time-field" %>
       <%= form.hidden_field :serialized_terms, value: @tags.to_json %>
       <%= form.hidden_field :city, value: @location_city %>
       <%= form.hidden_field :state, value: @location_state %>

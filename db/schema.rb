@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027043515) do
+ActiveRecord::Schema.define(version: 20141128080737) do
+
+  create_table "recommendation_validations", force: true do |t|
+    t.integer  "restaurant_recommendation_id"
+    t.integer  "time_to_complete"
+    t.datetime "time_of_entry"
+    t.boolean  "valid_recommendation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "hit_id"
+    t.string   "assignment_id"
+    t.string   "worker_id"
+  end
+
+  add_index "recommendation_validations", ["restaurant_recommendation_id"], name: "validating_recommendation_id"
 
   create_table "restaurant_recommendations", force: true do |t|
     t.text     "name"
