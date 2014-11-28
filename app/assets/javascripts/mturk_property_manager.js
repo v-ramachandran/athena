@@ -1,5 +1,5 @@
 var MTurk = MTurk || {}
-MTurk.WorkerPropertyManager = function(form_selector) {
+MTurk.TaskPropertyManager = function(form_selector) {
 
   var TARGET = $(form_selector);
   var INELIGIBLE_ASSIGNMENT_NAME = "ASSIGNMENT_ID_NOT_AVAILABLE";
