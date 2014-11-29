@@ -10,8 +10,7 @@ class RecommendationValidationController < ApplicationController
         RestaurantRecommendation.find(params[:restaurant_recommendation_id])
 
       submission_params = recommendation_validation_params
-      restaurant_recommendation.recommendation_validations.create(
-        submission_params)
+      restaurant_recommendation.recommendation_validations.create(submission_params)
       redirect_to construct_task_submission_url assignment_id=submission_params[:assignment_id],
         worker_id=submission_params[:worker_id], hit_id=submission_params[:hit_id]
     else
