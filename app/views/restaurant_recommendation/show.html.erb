@@ -34,7 +34,7 @@
   <div class="form-container">
     <%= form_for [RecommendationValidation.new],
       url: restaurant_recommendation_recommendation_validation_index_path(params[:id]),
-      html: {class: "recommendation-form time-tracked"} do |form| %>
+      html: {class: "recommendation-form time-tracked", is_sandbox: !!params[:is_sandbox]} do |form| %>
 
       <div class="stacked-radios">
         <div class="stacked-radio">

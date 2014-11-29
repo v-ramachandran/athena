@@ -27,7 +27,7 @@
 
   <div class="form-container">
     <%= form_for RestaurantRecommendation.new,
-        url: {action: "create"},
+        url: {action: "create", is_sandbox: !!params[:is_sandbox]},
 	      html: {class: "recommendation-form time-tracked"} do |form| %>
 
       <%= form.text_field :name, class: "text-input negative-suggested",

@@ -47,7 +47,7 @@ NegativeSuggest.InputManager = function(quorum_size) {
     input_target.on("keyup", function() {
 
       if ($.trim(this.value).length > 0) {
-        var regex = new RegExp("^"+$.trim(this.value),"g");
+        var regex = new RegExp("^"+$.trim(this.value),"gi");
         var filtered_blacklist_items = blacklisted_items.filter(function(item) {
           return item.match(regex);
         });
