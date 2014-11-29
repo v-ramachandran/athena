@@ -17,9 +17,10 @@ class RestaurantRecommendationController < ApplicationController
 
   def create
     if params[:restaurant_recommendation]
-      id = RestaurantRecommendation.create restaurant_recommendation_params
-      redirect_to construct_task_submission_url assignment_id=params[:assignment_id],
-        worker_id=params[:worker_id], hit_id=params[:hit_id]
+      submission_params = restaurant_recommendation_params
+      id = RestaurantRecommendation.create submission_params
+      redirect_to construct_task_submission_url assignment_id=submission_params[:assignment_id],
+        worker_id=submission_params[:worker_id], hit_id=submission_params[:hit_id]
     else
       redirect_to new_restaurant_recommendation_path
     end

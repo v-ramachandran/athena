@@ -12,11 +12,8 @@ class RecommendationValidationController < ApplicationController
       submission_params = recommendation_validation_params
       restaurant_recommendation.recommendation_validations.create(
         submission_params)
-      puts submission_params
-      url = construct_task_submission_url assignment_id=submission_params[:assignment_id],
+      redirect_to construct_task_submission_url assignment_id=submission_params[:assignment_id],
         worker_id=submission_params[:worker_id], hit_id=submission_params[:hit_id]
-      puts url
-      redirect_to url
     else
       redirect_to restaurant_recommendation_path params[
         :restaurant_recommendation_id]

@@ -37,7 +37,7 @@ NegativeSuggest.InputManager = function(quorum_size) {
   var display_vanilla_message = function(form) {
     form.find(".entry-message-container").removeClass("active");
     form.find(".vanilla-message-container").addClass("active");
-    form.find(".submit.button").prop('disabled', true);    
+    form.find(".submit.button").prop('disabled', true);
   }
 
   var deny_blacklisted_items = function (form_selector) {
@@ -47,7 +47,7 @@ NegativeSuggest.InputManager = function(quorum_size) {
     input_target.on("keyup", function() {
 
       if ($.trim(this.value).length > 0) {
-        var regex = new RegExp("^"+this.value,"g");
+        var regex = new RegExp("^"+$.trim(this.value),"g");
         var filtered_blacklist_items = blacklisted_items.filter(function(item) {
           return item.match(regex);
         });
