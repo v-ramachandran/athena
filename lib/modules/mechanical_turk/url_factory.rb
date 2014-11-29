@@ -2,7 +2,7 @@ module MechanicalTurk
   module URLFactory
 
     WORKER_SUBMISSION_URL_PREFIX =
-      "https://workersandbox.mturk.com/mturk/externalSubmit"
+      "https://mturk.com/mturk/externalSubmit"
 
     def construct_task_submission_url assignment_id, worker_id, hit_id, **params
       query_params = {assignmentId: assignment_id, workerId: worker_id,
