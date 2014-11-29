@@ -18,11 +18,17 @@ class RestaurantRecommendationController < ApplicationController
   def create
     if params[:restaurant_recommendation]
       id = RestaurantRecommendation.create restaurant_recommendation_params
-      redirect_to create_task_submission_url assignment_id=params[:assignment_id],
+      redirect_to construct_task_submission_url assignment_id=params[:assignment_id],
         worker_id=params[:worker_id], hit_id=params[:hit_id]
     else
       redirect_to new_restaurant_recommendation_path
     end
+  end
+
+  def show_groups
+    minimum_frequency = params[:minimum_frequency] || 0
+    @groups = RestaurantRecommendation.find_groups_with_atleast_min_count minimum_frequency
+    render json: @groups.keys
   end
 
   def restaurant_recommendation_params

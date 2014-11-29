@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require time_manager
 //= require mturk_property_manager
+//= require negative_suggest_manager
 //= require_tree .

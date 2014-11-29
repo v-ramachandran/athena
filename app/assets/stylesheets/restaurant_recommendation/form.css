@@ -27,6 +27,27 @@
    cursor: pointer;
 }
 
+.form-container .entry-message-container {
+  display: none;
+  margin-top: 2%;
+}
+
+.form-container .allow-message {
+  color: forestgreen;
+}
+
+.form-container .denial-message {
+  color: maroon;
+}
+
+.form-container .vanilla-message {
+  color: darkgray;
+}
+
+.form-container .entry-message-container.active {
+  display: block;
+}
+
 .stacked-radios {
   display: inline-block;
   vertical-align: bottom;

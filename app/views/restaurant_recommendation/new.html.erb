@@ -1,5 +1,5 @@
 <%= content_for :head_js do %>
-  <%= javascript_include_tag 'recommendation_validation', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'restaurant_recommendation', 'data-turbolinks-track' => true %>
 <% end %>
 
 <div class="recommendation-content">
@@ -28,9 +28,10 @@
   <div class="form-container">
     <%= form_for RestaurantRecommendation.new,
         url: {action: "create"},
-	      html: {class: "recommendation-form time-tracked negative-suggested"} do |form| %>
+	      html: {class: "recommendation-form time-tracked"} do |form| %>
 
-      <%= form.text_field :name, class: "text-input" %>
+      <%= form.text_field :name, class: "text-input negative-suggested",
+        required: true, autocomplete: "off" %>
       <%= form.hidden_field :time_to_complete, class: "completion-time-field" %>
       <%= form.hidden_field :time_of_entry, class: "entry-time-field" %>
       <%= form.hidden_field :serialized_terms, value: @tags.to_json %>
@@ -40,7 +41,18 @@
       <%= form.hidden_field :hit_id, class: "hit-id-field" %>
       <%= form.hidden_field :assignment_id, class: "assignment-id-field" %>
       <%= form.hidden_field :worker_id, class: "worker-id-field" %>
-      <%= form.submit "Submit", class: "submit button" %>
+      <%= form.submit "Submit", class: "submit button", disabled: true %>
     <% end %>
+
+    <div class="denial-message-container entry-message-container">
+      <p class="denial-message"></p>
+    </div>
+    <div class="allow-message-container entry-message-container">
+      <p class="allow-message"> Please continue with your entry and submit when finished. </p>
+    </div>
+    <div class="vanilla-message-container entry-message-container active">
+      <p class="vanilla-message"> Please enter a restaurant name that
+        we do not already have. You will be notified instantly if your entry exists.</p>
+    </div>
   </div>
 </div>
